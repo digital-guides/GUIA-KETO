@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#68B684" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <title>Keto360 — PWA</title>
+  <style>
+    :root { --bg:#0b1020; --card:#121932; --txt:#f1f5f9; --muted:#94a3b8; --accent:#68B684; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--txt); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial; }
+    header { position:sticky; top:0; background:rgba(11,16,32,.7); backdrop-filter: blur(8px); border-bottom:1px solid #1f2937; }
+    nav { display:flex; gap:.5rem; align-items:center; padding:.75rem 1rem; max-width:1000px; margin:0 auto; }
+    nav a { color:var(--txt); text-decoration:none; padding:.55rem .8rem; border:1px solid #1f2937; border-radius:999px; transition:.2s; white-space:nowrap; }
+    nav a:hover { background:#1f2937; }
+    .spacer { flex:1; }
+    .btn { background:var(--accent); color:#001018; border:none; border-radius:999px; padding:.6rem .9rem; cursor:pointer; font-weight:700; }
+    main { max-width:1000px; margin:1rem auto; padding:1rem; }
+    .card { background:var(--card); border-radius:1rem; padding:1rem 1.25rem; border:1px solid #1f2937; }
+    h1 { margin:.3rem 0 .5rem; }
+    footer { max-width:1000px; margin:2rem auto; padding:1rem; color:var(--muted); font-size:.9rem; }
+    .logo { width:86px; height:86px; border-radius:18px; object-fit:cover; border:1px solid #1f2937; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="./plan7dias.html">Plan 7 Días</a>
+      <a href="./bono2-lista-compras.html">Bono #2: Lista de Compras</a>
+      <a href="./bono3-snacks.html">Bono #3: Snacks</a>
+      <div class="spacer"></div>
+      <button id="installBtn" class="btn" hidden>Instalar app</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <div style="display:flex; gap:16px; align-items:center;">
+        <img src="./apple-touch-icon.png" alt="Keto360" class="logo"/>
+        <div>
+          <h1>Keto360 — PWA</h1>
+          <p>Instalable, funciona offline y reúne tus 3 páginas clave.</p>
+        </div>
+      </div>
+      <ol>
+        <li>Abre cada sección desde la barra superior.</li>
+        <li>Para instalar: busca el botón arriba (Android/Chrome) o “Añadir a pantalla de inicio” (iPhone/Safari).</li>
+        <li>Para actualizar, sube cambios y recarga; verás un aviso cuando haya nueva versión.</li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>© Keto360. PWA creada por ChatGPT.</footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
+      });
+    }
+
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault(); deferredPrompt = e; installBtn.hidden = false;
+    });
+    installBtn.addEventListener('click', async () => {
+      installBtn.hidden = true;
+      if (deferredPrompt) {
+        deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt = null;
+      }
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        const toast = document.createElement('div');
+        toast.textContent = 'Nueva versión instalada. Recarga para ver cambios.';
+        Object.assign(toast.style, {position:'fixed',inset:'auto 1rem 1rem auto',background:'#68B684',color:'#001018',padding:'0.6rem 0.9rem',borderRadius:'999px',fontWeight:'700'});
+        document.body.appendChild(toast);
+      });
+    }
+  </script>
+</body>
+</html>

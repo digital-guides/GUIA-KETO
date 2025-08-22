@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bono #2: 14 Snacks Keto Express - Keto Air Fryer 360</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #8e44ad 0%, #FF8C42 50%, #F4A261 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #2F2F2F;
+        }
+        
+        .snacks-guide {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #FFF8E7;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .guide-header {
+            background: linear-gradient(45deg, #8e44ad, #9b59b6);
+            padding: 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .brand-logo img {
+            height: 80px;
+            max-width: 300px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .bonus-badge {
+            background: #FFD700;
+            color: #8e44ad;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        
+        .guide-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .guide-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .promise-box {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        /* NAVEGACIÓN */
+        .nav-container {
+            background: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+        
+        .nav-title {
+            font-size: 2rem;
+            color: #8e44ad;
+            margin-bottom: 30px;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .nav-button {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 2px solid #8e44ad;
+            padding: 25px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #2F2F2F;
+            display: block;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(142, 68, 173, 0.3);
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+        }
+        
+        .nav-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .nav-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .nav-description {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* CONTENIDO DE SECCIONES */
+        .section-content {
+            display: none;
+            padding: 40px;
+            background: white;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .section-title.sweet { color: #e74c3c; }
+        .section-title.savory { color: #27ae60; }
+        .section-title.emergency { color: #FF6B6B; }
+        .section-title.beverages { color: #17a2b8; }
+        
+        .section-description {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .back-button {
+            background: #68B684;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #5a9f6f;
+        }
+        
+        /* SNACKS GRID */
+        .snacks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .snack-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid #f8f9fa;
+        }
+        
+        .snack-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .snack-card.sweet {
+            border-top: 5px solid #e74c3c;
+        }
+        
+        .snack-card.savory {
+            border-top: 5px solid #27ae60;
+        }
+        
+        .snack-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .snack-body {
+            padding: 20px;
+        }
+        
+        .snack-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .snack-title {
+            font-size: 1.3rem;
+            color: #2F2F2F;
+            margin-bottom: 10px;
+            flex: 1;
+            font-weight: bold;
+        }
+        
+        .snack-number {
+            background: #8e44ad;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+        
+        .snack-number.sweet { background: #e74c3c; }
+        .snack-number.savory { background: #27ae60; }
+        
+        .nutrition-info {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .nutrition-badge {
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border: 1px solid #e9ecef;
+        }
+        
+        .nutrition-badge.time { 
+            background: #fff3e0;
+            color: #e65100;
+            border-color: #FF8C42; 
+        }
+        .nutrition-badge.carbs { 
+            background: #ffebee;
+            color: #c62828;
+            border-color: #e74c3c; 
+        }
+        .nutrition-badge.portion { 
+            background: #e3f2fd;
+            color: #1565c0;
+            border-color: #3498db; 
+        }
+        
+        .ingredients-section {
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .ingredients-list {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #8e44ad;
+        }
+        
+        .ingredient-item {
+            margin-bottom: 4px;
+            padding-left: 12px;
+            position: relative;
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+        
+        .ingredient-item::before {
+            content: "•";
+            color: #FF8C42;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .instructions-section {
+            margin-bottom: 15px;
+        }
+        
+        .instructions-list {
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #FF8C42;
+        }
+        
+        .instruction-step {
+            margin-bottom: 6px;
+            padding: 6px 10px;
+            background: white;
+            border-radius: 4px;
+            border-left: 2px solid #FF8C42;
+            font-size: 0.8rem;
+            line-height: 1.3;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .pro-tip {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 0.8rem;
+        }
+        
+        .tip-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        /* BEBIDAS */
+        .beverages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .beverage-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            border-top: 4px solid #17a2b8;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .beverage-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .beverage-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2F2F2F;
+            margin-bottom: 8px;
+        }
+        
+        .beverage-portion {
+            color: #17a2b8;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+        }
+        
+        .beverage-benefits {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        /* EMERGENCIA */
+        .emergency-snacks {
+            background: linear-gradient(135deg, #FF6B6B, #ff5252);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
+        }
+        
+        .emergency-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .emergency-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .emergency-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .emergency-item:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .warning-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .final-message {
+            text-align: center;
+            margin-top: 25px;
+            font-style: italic;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.5;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .guide-title {
+                font-size: 2.2rem;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .snacks-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .snack-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .snack-number {
+                margin-left: 0;
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+            
+            .beverages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .emergency-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 25px;
+            }
+        }
+        
+        /* ANIMACIONES */
+        .snack-card, .beverage-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .snack-card:nth-child(1) { animation-delay: 0.1s; }
+        .snack-card:nth-child(2) { animation-delay: 0.2s; }
+        .snack-card:nth-child(3) { animation-delay: 0.3s; }
+        .snack-card:nth-child(4) { animation-delay: 0.4s; }
+        .snack-card:nth-child(5) { animation-delay: 0.5s; }
+        .snack-card:nth-child(6) { animation-delay: 0.6s; }
+        .snack-card:nth-child(7) { animation-delay: 0.7s; }
+    </style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="theme-color" content="#68B684">
+</head>
+<body>
+    <div class="snacks-guide">
+        <!-- HEADER -->
+        <div class="guide-header">
+            <div class="brand-logo">
+                <img src="https://i.imgur.com/hJajfbU.jpg" alt="Keto Air Fryer 360">
+            </div>
+            <div class="bonus-badge">🎁 BONO EXCLUSIVO #2</div>
+            <h1 class="guide-title">14 SNACKS KETO EXPRESS</h1>
+            <p class="guide-subtitle">¡Listos en 5 Minutos o Menos!</p>
+            
+            <div class="promise-box">
+                <h3>🎯 TU ARSENAL ANTI-ANTOJOS</h3>
+                <p>7 snacks dulces + 7 salados que te salvarán en cualquier momento de tentación. Nunca más dirás "no tengo opciones keto".</p>
+            </div>
+        </div>
+
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <div class="nav-container" id="main-nav">
+            <h2 class="nav-title">📚 ELIGE TU CATEGORÍA</h2>
+            <div class="nav-grid">
+                <button class="nav-button" onclick="showSection('sweet-snacks')">
+                    <span class="nav-icon">🍫</span>
+                    <div class="nav-text">SNACKS DULCES</div>
+                    <div class="nav-description">7 opciones para antojos de dulce</div>
+                </button>
+                
+                <button class="nav-button" onclick="showSection('savory-snacks')">
+                    <span class="nav-icon">🧀</span>
+                    <div class="nav-text">SNACKS SALADOS</div>
+                    <div class="nav-description">7 opciones crujientes y sabrosas</div>
+                </button>
+                
+                <button class="nav-button" onclick="showSection('beverages')">
+                    <span class="nav-icon">🥤</span>
+                    <div class="nav-text">BEBIDAS PERMITIDAS</div>
+                    <div class="nav-description">Lo que puedes tomar sin culpa</div>
+                </button>
+                
+                <button class="nav-button" onclick="showSection('emergency')">
+                    <span class="nav-icon">🚨</span>
+                    <div class="nav-text">SNACKS DE EMERGENCIA</div>
+                    <div class="nav-description">Opciones de 30 segundos</div>
+                </button>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: SNACKS DULCES -->
+        <div class="section-content" id="sweet-snacks">
+            <button class="back-button" onclick="showNav()">← Volver al Menú Principal</button>
+            
+            <div class="section-header">
+                <h2 class="section-title sweet">🍫 SNACKS DULCES</h2>
+                <p class="section-description">Para cuando necesites satisfacer el antojo de dulce sin romper la cetosis</p>
+            </div>
+            
+            <div class="snacks-grid">
+                <!-- SNACK DULCE #1 -->
+                <div class="snack-card sweet">
+                    <img src="https://i.imgur.com/JYal4PB.jpg" alt="Trufas de Coco y Almendra" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Trufas de Coco y Almendra</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 5 min</div>
+                                    <div class="nutrition-badge carbs">🔥 2g</div>
+                                    <div class="nutrition-badge portion">📊 2-3 trufas</div>
+                                </div>
+                            </div>
+                            <div class="snack-number sweet">1</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">2 cdas aceite de coco (sólido)</div>
+                                <div class="ingredient-item">2 cdas mantequilla de almendra</div>
+                                <div class="ingredient-item">1 cdta cacao en polvo</div>
+                                <div class="ingredient-item">3 cdas coco rallado</div>
+                                <div class="ingredient-item">Eritritol al gusto</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Mezcla aceite de coco + mantequilla de almendra hasta cremoso</div>
+                                <div class="instruction-step">Añade cacao, 2 cdas de coco rallado y eritritol</div>
+                                <div class="instruction-step">Forma 6 bolitas con las manos</div>
+                                <div class="instruction-step">Rueda en el coco restante</div>
+                                <div class="instruction-step">Refrigera 15 min = ¡LISTO!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Haz 20 trufas y congela en porciones individuales. Duran hasta 2 semanas.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK DULCE #2 -->
+                <div class="snack-card sweet">
+                    <img src="https://i.imgur.com/J0q6kqw.jpg" alt="Paletas de Aguacate con Cacao" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Paletas de Aguacate con Cacao</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 5 min prep</div>
+                                    <div class="nutrition-badge carbs">🔥 3g</div>
+                                    <div class="nutrition-badge portion">📊 1 paleta</div>
+                                </div>
+                            </div>
+                            <div class="snack-number sweet">2</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">1 aguacate maduro</div>
+                                <div class="ingredient-item">2 cdas cacao en polvo</div>
+                                <div class="ingredient-item">3 cdas crema de leche</div>
+                                <div class="ingredient-item">Stevia al gusto</div>
+                                <div class="ingredient-item">1 cdta extracto de vainilla</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Tritura aguacate hasta cremoso</div>
+                                <div class="instruction-step">Mezcla con cacao, crema de leche y stevia</div>
+                                <div class="instruction-step">Añade vainilla y mezcla bien</div>
+                                <div class="instruction-step">Vierte en moldes de paleta</div>
+                                <div class="instruction-step">Congela 2-3 horas = ¡HELADO KETO!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Haz 8 paletas y tenlas siempre listas. Perfectas para antojos nocturnos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK DULCE #3 -->
+                <div class="snack-card sweet">
+                    <img src="https://i.imgur.com/ysqPw9y.jpg" alt="Galletitas de Almendra Express" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Galletitas de Almendra Express</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 4 min</div>
+                                    <div class="nutrition-badge carbs">🔥 2g</div>
+                                    <div class="nutrition-badge portion">📊 2-3 galletitas</div>
+                                </div>
+                            </div>
+                            <div class="snack-number sweet">3</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">3 cdas harina de almendra</div>
+                                <div class="ingredient-item">1 cda mantequilla derretida</div>
+                                <div class="ingredient-item">1 cdta eritritol</div>
+                                <div class="ingredient-item">Pizca de canela</div>
+                                <div class="ingredient-item">Pizca de sal</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 AIR FRYER</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Mezcla todos los ingredientes</div>
+                                <div class="instruction-step">Forma 4 bolitas y aplasta ligeramente</div>
+                                <div class="instruction-step">Precalienta air fryer 160°C - 1 min</div>
+                                <div class="instruction-step">Cocina 3-4 min hasta dorar</div>
+                                <div class="instruction-step">Deja enfriar = ¡CRUJIENTES!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Añade chispas de chocolate keto en el último minuto de cocción.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK DULCE #4 -->
+                <div class="snack-card sweet">
+                    <img src="https://i.imgur.com/AN8DCJT.jpg" alt="Chips de Coco Tostado" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Chips de Coco Tostado</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 3 min</div>
+                                    <div class="nutrition-badge carbs">🔥 2g</div>
+                                    <div class="nutrition-badge portion">📊 2 cdas</div>
+                                </div>
+                            </div>
+                            <div class="snack-number sweet">4</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">½ taza coco en hojuelas</div>
+                                <div class="ingredient-item">Pizca de canela</div>
+                                <div class="ingredient-item">Pizca de eritritol (opcional)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 AIR FRYER</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Precalienta 160°C - 1 min</div>
+                                <div class="instruction-step">Esparce coco en canasta</div>
+                                <div class="instruction-step">Cocina 2-3 min, agita cada minuto</div>
+                                <div class="instruction-step">Espolvorea canela al final</div>
+                                <div class="instruction-step">¡Chips dulces y crujientes!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Perfecto como topping para yogurt griego o mousse de chocolate.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK DULCE #5 -->
+                <div class="snack-card sweet">
+                    <img src="https://i.imgur.com/U8fRyye.jpg" alt="Bombas de Mantequilla de Maní" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Bombas de Mantequilla de Maní</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 4 min</div>
+                                    <div class="nutrition-badge carbs">🔥 3g</div>
+                                    <div class="nutrition-badge portion">📊 2 bombas</div>
+                                </div>
+                            </div>
+                            <div class="snack-number sweet">5</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">2 cdas mantequilla de maní natural</div>
+                                <div class="ingredient-item">1 cda aceite de coco sólido</div>
+                                <div class="ingredient-item">1 cdta semillas de chía</div>
+                                <div class="ingredient-item">Stevia al gusto</div>
+                                <div class="ingredient-item">Pizca de sal marina</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Mezcla mantequilla de maní + aceite de coco</div>
+                                <div class="instruction-step">Añade stevia y sal</div>
+                                <div class="instruction-step">Incorpora chía para textura</div>
+                                <div class="instruction-step">Forma 4 bolitas</div>
+                                <div class="instruction-step">Refrigera 20 min = ¡ENERGÍA PURA!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Usa moldes de hielo para formas perfectas y uniformes.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK DULCE #6 -->
+                <div class="snack-card sweet">
+                    <img src="https://i.imgur.com/Bb2H2e4.jpg" alt="Mousse de Chocolate en 2 Minutos" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Mousse de Chocolate en 2 Minutos</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 2 min</div>
+                                    <div class="nutrition-badge carbs">🔥 3g</div>
+                                    <div class="nutrition-badge portion">📊 1 taza</div>
+                                </div>
+                            </div>
+                            <div class="snack-number sweet">6</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">3 cdas queso crema</div>
+                                <div class="ingredient-item">1 cda cacao en polvo</div>
+                                <div class="ingredient-item">1 cda crema de leche</div>
+                                <div class="ingredient-item">Stevia al gusto</div>
+                                <div class="ingredient-item">Pizca de vainilla</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Bate queso crema hasta suave</div>
+                                <div class="instruction-step">Añade cacao y stevia, mezcla bien</div>
+                                <div class="instruction-step">Incorpora crema y vainilla</div>
+                                <div class="instruction-step">Bate hasta consistencia de mousse</div>
+                                <div class="instruction-step">¡Disfruta inmediatamente o refrigera!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Decora con coco rallado o nueces picadas para extra textura.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK DULCE #7 -->
+                <div class="snack-card sweet">
+                    <img src="https://i.imgur.com/mj2aGUo.jpg" alt="Bark de Chocolate con Nueces" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Bark de Chocolate con Nueces</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 5 min</div>
+                                    <div class="nutrition-badge carbs">🔥 2g</div>
+                                    <div class="nutrition-badge portion">📊 1 porción</div>
+                                </div>
+                            </div>
+                            <div class="snack-number sweet">7</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">3 cdas chocolate 85% cacao derretido</div>
+                                <div class="ingredient-item">1 cda nueces picadas</div>
+                                <div class="ingredient-item">1 cdta aceite de coco</div>
+                                <div class="ingredient-item">Pizca de sal marina</div>
+                                <div class="ingredient-item">Stevia al gusto</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Derrite chocolate + aceite de coco</div>
+                                <div class="instruction-step">Endulza con stevia al gusto</div>
+                                <div class="instruction-step">Vierte en molde pequeño forrado</div>
+                                <div class="instruction-step">Espolvorea nueces y sal</div>
+                                <div class="instruction-step">Refrigera 30 min = ¡CHOCOLATE GOURMET!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Parte en cuadros pequeños. Un poco satisface mucho el antojo de chocolate.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: SNACKS SALADOS -->
+        <div class="section-content" id="savory-snacks">
+            <button class="back-button" onclick="showNav()">← Volver al Menú Principal</button>
+            
+            <div class="section-header">
+                <h2 class="section-title savory">🧀 SNACKS SALADOS</h2>
+                <p class="section-description">Para cuando necesites algo crujiente y sabroso sin culpa</p>
+            </div>
+            
+            <div class="snacks-grid">
+                <!-- SNACK SALADO #1 -->
+                <div class="snack-card savory">
+                    <img src="https://i.imgur.com/o2kvVQQ.jpg" alt="Chips de Queso Parmesano" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Chips de Queso Parmesano</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 4 min</div>
+                                    <div class="nutrition-badge carbs">🔥 1g</div>
+                                    <div class="nutrition-badge portion">📊 1 puñado</div>
+                                </div>
+                            </div>
+                            <div class="snack-number savory">1</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">½ taza queso parmesano rallado</div>
+                                <div class="ingredient-item">Pizca de pimentón (opcional)</div>
+                                <div class="ingredient-item">Pizca de ajo en polvo</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 AIR FRYER</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Precalienta 180°C - 2 min</div>
+                                <div class="instruction-step">Esparce parmesano en papel pergamino</div>
+                                <div class="instruction-step">Espolvorea especias</div>
+                                <div class="instruction-step">Cocina 3-4 min hasta dorar</div>
+                                <div class="instruction-step">Deja enfriar 1 min = ¡CRUJIENTE PERFECTO!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Haz porciones grandes y guarda en recipiente hermético hasta 3 días.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK SALADO #2 -->
+                <div class="snack-card savory">
+                    <img src="https://i.imgur.com/FPXLkKS.jpg" alt="Rollitos de Jamón y Aguacate" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Rollitos de Jamón y Aguacate</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 2 min</div>
+                                    <div class="nutrition-badge carbs">🔥 2g</div>
+                                    <div class="nutrition-badge portion">📊 3-4 rollitos</div>
+                                </div>
+                            </div>
+                            <div class="snack-number savory">2</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">4 láminas jamón serrano</div>
+                                <div class="ingredient-item">½ aguacate en bastones</div>
+                                <div class="ingredient-item">4 aceitunas verdes</div>
+                                <div class="ingredient-item">Pimienta negra</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Coloca bastón de aguacate en jamón</div>
+                                <div class="instruction-step">Espolvorea pimienta</div>
+                                <div class="instruction-step">Enrolla firmemente</div>
+                                <div class="instruction-step">Asegura con palillo</div>
+                                <div class="instruction-step">Corona con aceituna = ¡ELEGANCIA PURA!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Prepara 10 rollitos y guarda en refrigerador hasta 2 días.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK SALADO #3 -->
+                <div class="snack-card savory">
+                    <img src="https://i.imgur.com/3YWWMPT.jpg" alt="Mix de Nueces Especiadas" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Mix de Nueces Especiadas</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 5 min</div>
+                                    <div class="nutrition-badge carbs">🔥 3g</div>
+                                    <div class="nutrition-badge portion">📊 2 cdas</div>
+                                </div>
+                            </div>
+                            <div class="snack-number savory">3</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">½ taza nueces mixtas</div>
+                                <div class="ingredient-item">½ cdta aceite de oliva</div>
+                                <div class="ingredient-item">¼ cdta pimentón ahumado</div>
+                                <div class="ingredient-item">Pizca de sal marina</div>
+                                <div class="ingredient-item">Pizca de comino</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 AIR FRYER</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Mezcla todo en un bowl</div>
+                                <div class="instruction-step">Precalienta 160°C - 2 min</div>
+                                <div class="instruction-step">Cocina nueces 3-4 min, agita cada minuto</div>
+                                <div class="instruction-step">Deja enfriar completamente</div>
+                                <div class="instruction-step">¡CRUNCH ADICTIVO!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Duplica la receta y guarda en frasco hermético hasta 1 semana.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK SALADO #4 -->
+                <div class="snack-card savory">
+                    <img src="https://i.imgur.com/RbCMZv2.jpg" alt="Champiñones Rellenos Express" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Champiñones Rellenos Express</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 5 min</div>
+                                    <div class="nutrition-badge carbs">🔥 3g</div>
+                                    <div class="nutrition-badge portion">📊 3-4 champiñones</div>
+                                </div>
+                            </div>
+                            <div class="snack-number savory">4</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">4 champiñones medianos</div>
+                                <div class="ingredient-item">2 cdas queso crema</div>
+                                <div class="ingredient-item">1 cda cebollín picado</div>
+                                <div class="ingredient-item">Sal y pimienta</div>
+                                <div class="ingredient-item">Pizca de ajo en polvo</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 AIR FRYER</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Retira tallos de champiñones</div>
+                                <div class="instruction-step">Mezcla queso crema + cebollín + especias</div>
+                                <div class="instruction-step">Rellena los champiñones generosamente</div>
+                                <div class="instruction-step">Air fryer 180°C - 4 min</div>
+                                <div class="instruction-step">¡Listos para devorar!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Añade tocino desmenuzado para extra sabor y proteína.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK SALADO #5 -->
+                <div class="snack-card savory">
+                    <img src="https://i.imgur.com/B6ynaWb.jpg" alt="Pepino con Mousse de Atún" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Pepino con Mousse de Atún</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 3 min</div>
+                                    <div class="nutrition-badge carbs">🔥 2g</div>
+                                    <div class="nutrition-badge portion">📊 6-8 rodajas</div>
+                                </div>
+                            </div>
+                            <div class="snack-number savory">5</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">½ pepino en rodajas gruesas</div>
+                                <div class="ingredient-item">½ lata atún en aceite</div>
+                                <div class="ingredient-item">1 cda mayonesa keto</div>
+                                <div class="ingredient-item">½ cdta mostaza dijon</div>
+                                <div class="ingredient-item">Eneldo fresco</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Mezcla atún + mayonesa + mostaza</div>
+                                <div class="instruction-step">Bate hasta textura cremosa</div>
+                                <div class="instruction-step">Con cuchara forma montículos sobre pepino</div>
+                                <div class="instruction-step">Espolvorea eneldo fresco</div>
+                                <div class="instruction-step">¡Refrescante y saciante!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Usa molde de hielo para hacer porciones perfectas de mousse.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK SALADO #6 -->
+                <div class="snack-card savory">
+                    <img src="https://i.imgur.com/1qFTAuy.jpg" alt="Chips de Calabacín al Ajo" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Chips de Calabacín al Ajo</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 5 min</div>
+                                    <div class="nutrition-badge carbs">🔥 3g</div>
+                                    <div class="nutrition-badge portion">📊 1 taza</div>
+                                </div>
+                            </div>
+                            <div class="snack-number savory">6</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">1 calabacín pequeño en rodajas finas</div>
+                                <div class="ingredient-item">1 cda aceite de oliva</div>
+                                <div class="ingredient-item">½ cdta ajo en polvo</div>
+                                <div class="ingredient-item">Sal marina</div>
+                                <div class="ingredient-item">Parmesano rallado (opcional)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 AIR FRYER</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Mezcla calabacín + aceite + especias</div>
+                                <div class="instruction-step">Precalienta 180°C - 2 min</div>
+                                <div class="instruction-step">Cocina 4-5 min hasta dorar bordes</div>
+                                <div class="instruction-step">Espolvorea parmesano si deseas</div>
+                                <div class="instruction-step">¡Chips saludables y crujientes!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            No los apiles, hazlos en una sola capa para máximo crunch.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SNACK SALADO #7 -->
+                <div class="snack-card savory">
+                    <img src="https://i.imgur.com/rykZkjC.jpg" alt="Huevos Diabólicos Air Fryer" class="snack-image">
+                    <div class="snack-body">
+                        <div class="snack-header">
+                            <div>
+                                <h3 class="snack-title">Huevos Diabólicos Air Fryer</h3>
+                                <div class="nutrition-info">
+                                    <div class="nutrition-badge time">⏱️ 5 min</div>
+                                    <div class="nutrition-badge carbs">🔥 1g</div>
+                                    <div class="nutrition-badge portion">📊 2 mitades</div>
+                                </div>
+                            </div>
+                            <div class="snack-number savory">7</div>
+                        </div>
+                        
+                        <div class="ingredients-section">
+                            <h4 class="section-subtitle">🛒 INGREDIENTES</h4>
+                            <div class="ingredients-list">
+                                <div class="ingredient-item">2 huevos duros (precocidos)</div>
+                                <div class="ingredient-item">1 cda mayonesa</div>
+                                <div class="ingredient-item">½ cdta mostaza</div>
+                                <div class="ingredient-item">1 tira tocino desmenuzado</div>
+                                <div class="ingredient-item">Páprika para decorar</div>
+                            </div>
+                        </div>
+                        
+                        <div class="instructions-section">
+                            <h4 class="section-subtitle">👨‍🍳 PREPARACIÓN</h4>
+                            <div class="instructions-list">
+                                <div class="instruction-step">Corta huevos por la mitad</div>
+                                <div class="instruction-step">Extrae yemas y mézclalas con mayo + mostaza</div>
+                                <div class="instruction-step">Rellena las claras con la mezcla</div>
+                                <div class="instruction-step">Espolvorea tocino + páprika</div>
+                                <div class="instruction-step">¡Clásico irresistible!</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pro-tip">
+                            <div class="tip-title">💡 TIP PRO:</div>
+                            Usa manga pastelera para relleno profesional y elegante.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: BEBIDAS PERMITIDAS -->
+        <div class="section-content" id="beverages">
+            <button class="back-button" onclick="showNav()">← Volver al Menú Principal</button>
+            
+            <div class="section-header">
+                <h2 class="section-title beverages">🥤 BEBIDAS PERMITIDAS</h2>
+                <p class="section-description">Lo que puedes tomar entre comidas sin romper la cetosis</p>
+            </div>
+            
+            <div class="beverages-grid">
+                <div class="beverage-card">
+                    <h3 class="beverage-name">💧 Agua Natural</h3>
+                    <p class="beverage-portion">CANTIDAD: Ilimitada (mínimo 2.5L/día)</p>
+                    <p class="beverage-benefits">Base de toda hidratación. Acelera el metabolismo, ayuda a la cetosis y reduce falsas sensaciones de hambre. Toma un vaso cada hora.</p>
+                </div>
+                
+                <div class="beverage-card">
+                    <h3 class="beverage-name">🍋 Agua con Limón</h3>
+                    <p class="beverage-portion">CANTIDAD: 2-3 vasos al día</p>
+                    <p class="beverage-benefits">Estimula la digestión, aporta vitamina C y ayuda a alcalinizar el organismo. Perfecto entre comidas. Usa ½ limón por vaso.</p>
+                </div>
+                
+                <div class="beverage-card">
+                    <h3 class="beverage-name">☕ Café Negro</h3>
+                    <p class="beverage-portion">CANTIDAD: 2-3 tazas al día</p>
+                    <p class="beverage-benefits">Aumenta el metabolismo, mejora el enfoque mental y puede prolongar el ayuno intermitente. Sin azúcar ni edulcorantes.</p>
+                </div>
+                
+                <div class="beverage-card">
+                    <h3 class="beverage-name">🍵 Té Verde/Rojo</h3>
+                    <p class="beverage-portion">CANTIDAD: 2-4 tazas al día</p>
+                    <p class="beverage-benefits">Antioxidantes naturales, acelera la quema de grasa y es termogénico. Ideal para media tarde. Sin endulzar.</p>
+                </div>
+                
+                <div class="beverage-card">
+                    <h3 class="beverage-name">💨 Agua con Gas</h3>
+                    <p class="beverage-portion">CANTIDAD: 1-2 vasos al día</p>
+                    <p class="beverage-benefits">Satisface la necesidad de burbujas sin azúcar. Perfecto sustituto de refrescos. Solo variedades sin saborizantes.</p>
+                </div>
+                
+                <div class="beverage-card">
+                    <h3 class="beverage-name">🌿 Infusiones Herbales</h3>
+                    <p class="beverage-portion">CANTIDAD: Ilimitada</p>
+                    <p class="beverage-benefits">Manzanilla, menta, jengibre, rooibos. Relajan, mejoran digestión y no rompen la cetosis. Perfectas para la noche.</p>
+                </div>
+                
+                <div class="beverage-card">
+                    <h3 class="beverage-name">🥥 Agua de Coco Natural</h3>
+                    <p class="beverage-portion">CANTIDAD: 1 vaso pequeño/día (200ml)</p>
+                    <p class="beverage-benefits">Solo versiones sin azúcar añadido. Aporta electrolitos naturales post-ejercicio. Verificar etiqueta siempre.</p>
+                </div>
+                
+                <div class="beverage-card">
+                    <h3 class="beverage-name">🧈 Café con Aceite de Coco</h3>
+                    <p class="beverage-portion">CANTIDAD: 1 taza en la mañana</p>
+                    <p class="beverage-benefits">Bullet coffee keto. Energía sostenida, prolonga saciedad y mantiene cetosis. Usa 1 cda de aceite de coco.</p>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h3>⚠️ BEBIDAS PROHIBIDAS</h3>
+                <p><strong>Evita completamente:</strong> Refrescos, jugos de fruta, bebidas deportivas, café con azúcar, alcohol dulce, leche regular, bebidas "light" con aspartamo.</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN: SNACKS DE EMERGENCIA -->
+        <div class="section-content" id="emergency">
+            <button class="back-button" onclick="showNav()">← Volver al Menú Principal</button>
+            
+            <div class="section-header">
+                <h2 class="section-title emergency">🚨 SNACKS DE EMERGENCIA</h2>
+                <p class="section-description">Cuando necesites algo AHORA y no tengas tiempo de cocinar</p>
+            </div>
+            
+            <div class="emergency-snacks">
+                <h3 class="emergency-title">⚡ OPCIONES DE 30 SEGUNDOS</h3>
+                <p style="text-align: center; margin-bottom: 20px; font-size: 1.1rem;">
+                    Para esos momentos cuando el hambre ataca y necesitas una solución instantánea que mantenga tu cetosis intacta:
+                </p>
+                
+                <div class="emergency-list">
+                    <div class="emergency-item">🥜 Puñado de nueces crudas (10-15 unidades)</div>
+                    <div class="emergency-item">🧀 Queso string + 5 aceitunas verdes</div>
+                    <div class="emergency-item">🥄 1 cda mantequilla de almendra natural</div>
+                    <div class="emergency-item">🥑 ½ aguacate con pizca de sal marina</div>
+                    <div class="emergency-item">🥚 Huevo duro (precocido) con sal</div>
+                    <div class="emergency-item">🥓 2-3 lonchas de jamón serrano</div>
+                    <div class="emergency-item">🫒 6-8 aceitunas mixtas</div>
+                    <div class="emergency-item">🧈 1 cda aceite de coco directo</div>
+                    <div class="emergency-item">🥒 Pepino con sal y limón</div>
+                    <div class="emergency-item">🍖 Cecina o carne seca sin azúcar</div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin: 25px 0;">
+                    <h4 style="margin-bottom: 15px; font-size: 1.2rem;">🎯 REGLAS DE EMERGENCIA:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                        <div>✅ <strong>Máximo 1 snack de emergencia por día</strong></div>
+                        <div>✅ <strong>Solo si tienes hambre real</strong></div>
+                        <div>✅ <strong>Come despacio y consciente</strong></div>
+                        <div>✅ <strong>Bebe agua antes y después</strong></div>
+                    </div>
+                </div>
+                
+                <div class="final-message">
+                    <strong>🏆 RECUERDA:</strong> Estos snacks de emergencia son tu salvavidas cuando todo lo demás falla. 
+                    Tenlos siempre a mano en tu refrigerador, escritorio o bolsa. La clave del éxito keto está en 
+                    estar preparado para cualquier situación. ¡Con estas opciones nunca volverás a sentir que 
+                    "no tienes nada keto para comer"!
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #4CAF50, #66BB6A); color: white; padding: 25px; border-radius: 15px; margin-top: 30px; text-align: center;">
+                <h3 style="margin-bottom: 15px; font-size: 1.4rem;">💡 TIP MAESTRO</h3>
+                <p style="font-size: 1rem; line-height: 1.5;">
+                    <strong>Preparación es poder:</strong> Cada domingo, prepara 2-3 tipos de snacks de la lista principal 
+                    y ten siempre 3-4 opciones de emergencia listas. Así nunca estarás en una situación donde 
+                    tengas que tomar decisiones alimentarias por desesperación.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar secciones
+        function showSection(sectionId) {
+            // Ocultar navegación principal
+            document.getElementById('main-nav').style.display = 'none';
+            
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Mostrar sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Scroll al top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Función para volver a la navegación
+        function showNav() {
+            // Mostrar navegación principal
+            document.getElementById('main-nav').style.display = 'block';
+            
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Scroll al top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                showNav();
+            }
+        });
+
+        // Animación de entrada para las tarjetas
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observar todas las tarjetas para animaciones
+            document.querySelectorAll('.snack-card, .beverage-card, .nav-button').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+
+        // Efectos hover mejorados
+        document.querySelectorAll('.snack-card, .beverage-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.style.boxShadow = '0 25px 50px rgba(0,0,0,0.15)';
+                this.style.transition = 'all 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.1)';
+            });
+        });
+
+        // Efecto de "cocción" en las imágenes
+        document.querySelectorAll('.snack-image').forEach(img => {
+            img.addEventListener('mouseenter', function() {
+                this.style.filter = 'brightness(1.1) contrast(1.1) saturate(1.2)';
+                this.style.transition = 'filter 0.3s ease';
+            });
+            
+            img.addEventListener('mouseleave', function() {
+                this.style.filter = 'brightness(1) contrast(1) saturate(1)';
+            });
+        });
+
+        // Función para crear confeti cuando se hace clic en los botones de navegación
+        function createConfetti(element) {
+            const rect = element.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = centerX + 'px';
+                    confetti.style.top = centerY + 'px';
+                    confetti.style.width = '4px';
+                    confetti.style.height = '4px';
+                    confetti.style.backgroundColor = ['#FF8C42', '#F4A261', '#8e44ad', '#e74c3c', '#27ae60'][Math.floor(Math.random() * 5)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.pointerEvents = 'none';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.transition = 'all 1s ease-out';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.style.transform = `translate(${(Math.random() - 0.5) * 200}px, ${(Math.random() - 0.5) * 200}px)`;
+                        confetti.style.opacity = '0';
+                    }, 50);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(confetti);
+                    }, 1050);
+                }, i * 50);
+            }
+        }
+
+        // Agregar efecto confeti a los botones de navegación
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                createConfetti(this);
+            });
+        });
+
+        // Smooth scroll para enlaces internos (mantener solo para otros casos)
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.getAttribute('href') && e.target.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+
+        // Función para mostrar tips al azar
+        const randomTips = [
+            "💡 Prepara snacks los domingos para toda la semana",
+            "🔥 Las nueces tostadas en air fryer saben mejor",
+            "🥑 El aguacate maduro es clave para las paletas cremosas",
+            "🧀 El queso parmesano viejo da los chips más crujientes",
+            "⏰ Los snacks dulces son mejores en la mañana",
+            "🚨 Siempre ten opciones de emergencia listas"
+        ];
+
+        // Mostrar tip aleatorio cada 30 segundos
+        setInterval(() => {
+            const randomTip = randomTips[Math.floor(Math.random() * randomTips.length)];
+            
+            const tipElement = document.createElement('div');
+            tipElement.innerHTML = randomTip;
+            tipElement.style.position = 'fixed';
+            tipElement.style.bottom = '20px';
+            tipElement.style.right = '20px';
+            tipElement.style.background = 'linear-gradient(135deg, #8e44ad, #9b59b6)';
+            tipElement.style.color = 'white';
+            tipElement.style.padding = '10px 15px';
+            tipElement.style.borderRadius = '10px';
+            tipElement.style.fontSize = '0.9rem';
+            tipElement.style.fontWeight = 'bold';
+            tipElement.style.zIndex = '9999';
+            tipElement.style.opacity = '0';
+            tipElement.style.transform = 'translateY(50px)';
+            tipElement.style.transition = 'all 0.5s ease';
+            tipElement.style.maxWidth = '300px';
+            tipElement.style.boxShadow = '0 10px 25px rgba(0,0,0,0.2)';
+            
+            document.body.appendChild(tipElement);
+            
+            setTimeout(() => {
+                tipElement.style.opacity = '1';
+                tipElement.style.transform = 'translateY(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                tipElement.style.opacity = '0';
+                tipElement.style.transform = 'translateY(-50px)';
+                setTimeout(() => {
+                    document.body.removeChild(tipElement);
+                }, 500);
+            }, 3000);
+        }, 30000);
+    </script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(console.error);
+  });
+}
+</script>
+</body>
+</html>

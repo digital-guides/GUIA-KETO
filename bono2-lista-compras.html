@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras Keto - 7 Días</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #FF8C42 0%, #F4A261 100%);
+            padding: 20px;
+            color: #2F2F2F;
+        }
+        
+        .shopping-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #FFF8E7;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #F4A261, #FF8C42);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-bottom: 15px;
+        }
+        
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: white;
+            color: #FF8C42;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .category {
+            margin-bottom: 25px;
+        }
+        
+        .category-title {
+            background: #FF8C42;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .items-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .item-group {
+            background: #FFF8E7;
+            border: 1px solid #F4A261;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .group-title {
+            font-weight: bold;
+            color: #FF8C42;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .item {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(244,162,97,0.2);
+        }
+        
+        .item:last-child {
+            border-bottom: none;
+        }
+        
+        .item.checked {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+        
+        .checkbox {
+            margin-right: 10px;
+            transform: scale(1.2);
+            accent-color: #FF8C42;
+        }
+        
+        .item-text {
+            flex-grow: 1;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        
+        .quantity {
+            color: #666;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+        
+        .progress {
+            background: #FF8C42;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            background: rgba(255,255,255,0.3);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            background: white;
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .summary {
+            background: #2F2F2F;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .summary-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .summary-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF8C42;
+        }
+        
+        .summary-label {
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .items-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .shopping-list {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .actions, .progress {
+                display: none;
+            }
+            
+            .header {
+                background: #FF8C42 !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="theme-color" content="#68B684">
+</head>
+<body>
+    <div class="shopping-list">
+        <!-- HEADER -->
+        <div class="header">
+            <img src="https://i.imgur.com/hJajfbU.jpg" alt="Keto Air Fryer 360" class="logo">
+            <h1 class="title">LISTA DE COMPRAS KETO</h1>
+            <p class="subtitle">Plan completo de 7 días - 21 recetas</p>
+            
+            <div class="actions">
+                <button class="btn" onclick="checkAll()">✅ Marcar Todo</button>
+                <button class="btn" onclick="uncheckAll()">🔄 Limpiar</button>
+                <button class="btn" onclick="window.print()">🖨️ Imprimir</button>
+            </div>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="content">
+            <!-- PROTEÍNAS -->
+            <div class="category">
+                <div class="category-title">
+                    <span>🥩</span> PROTEÍNAS
+                </div>
+                <div class="items-container">
+                    <div class="item-group">
+                        <div class="group-title">Carnes</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="carne1">
+                            <label for="carne1" class="item-text">
+                                Carne molida 80/20 <span class="quantity">(250g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="carne2">
+                            <label for="carne2" class="item-text">
+                                Tiras de res <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="carne3">
+                            <label for="carne3" class="item-text">
+                                Lomo de cerdo <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="carne4">
+                            <label for="carne4" class="item-text">
+                                Pavo molido magro <span class="quantity">(120g)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="item-group">
+                        <div class="group-title">Pollo & Pescado</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="pollo1">
+                            <label for="pollo1" class="item-text">
+                                Pechuga de pollo <span class="quantity">(300g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="pollo2">
+                            <label for="pollo2" class="item-text">
+                                Alitas de pollo <span class="quantity">(180g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="pescado1">
+                            <label for="pescado1" class="item-text">
+                                Corvina/Merluza <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="pescado2">
+                            <label for="pescado2" class="item-text">
+                                Salmón sin piel <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="pescado3">
+                            <label for="pescado3" class="item-text">
+                                Tilapia <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="pescado4">
+                            <label for="pescado4" class="item-text">
+                                Camarones grandes <span class="quantity">(120g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="pescado5">
+                            <label for="pescado5" class="item-text">
+                                Atún en lata <span class="quantity">(1 lata)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HUEVOS Y LÁCTEOS -->
+            <div class="category">
+                <div class="category-title">
+                    <span>🥚</span> HUEVOS Y LÁCTEOS
+                </div>
+                <div class="items-container">
+                    <div class="item-group">
+                        <div class="group-title">Básicos</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="huevo1">
+                            <label for="huevo1" class="item-text">
+                                Huevos grandes <span class="quantity">(12 unidades)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="lacteo1">
+                            <label for="lacteo1" class="item-text">
+                                Mantequilla <span class="quantity">(250g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="lacteo2">
+                            <label for="lacteo2" class="item-text">
+                                Crema de leche <span class="quantity">(200ml)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="item-group">
+                        <div class="group-title">Quesos</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="queso1">
+                            <label for="queso1" class="item-text">
+                                Cheddar rallado <span class="quantity">(100g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="queso2">
+                            <label for="queso2" class="item-text">
+                                Mozzarella rallado <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="queso3">
+                            <label for="queso3" class="item-text">
+                                Parmesano rallado <span class="quantity">(50g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="queso4">
+                            <label for="queso4" class="item-text">
+                                Queso feta <span class="quantity">(60g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="queso5">
+                            <label for="queso5" class="item-text">
+                                Queso de cabra <span class="quantity">(25g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="queso6">
+                            <label for="queso6" class="item-text">
+                                Queso crema <span class="quantity">(100g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="queso7">
+                            <label for="queso7" class="item-text">
+                                Ricotta <span class="quantity">(40g)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VEGETALES -->
+            <div class="category">
+                <div class="category-title">
+                    <span>🥬</span> VEGETALES
+                </div>
+                <div class="items-container">
+                    <div class="item-group">
+                        <div class="group-title">Hojas Verdes</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal1">
+                            <label for="vegetal1" class="item-text">
+                                Espinaca fresca <span class="quantity">(300g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal2">
+                            <label for="vegetal2" class="item-text">
+                                Lechuga romana <span class="quantity">(1 pieza)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="item-group">
+                        <div class="group-title">Crucíferos</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal3">
+                            <label for="vegetal3" class="item-text">
+                                Brócoli <span class="quantity">(400g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal4">
+                            <label for="vegetal4" class="item-text">
+                                Coliflor <span class="quantity">(300g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal5">
+                            <label for="vegetal5" class="item-text">
+                                Coles de Bruselas <span class="quantity">(200g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal6">
+                            <label for="vegetal6" class="item-text">
+                                Repollo morado <span class="quantity">(200g)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="item-group">
+                        <div class="group-title">Otros Vegetales</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal7">
+                            <label for="vegetal7" class="item-text">
+                                Calabacín <span class="quantity">(2 piezas)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal8">
+                            <label for="vegetal8" class="item-text">
+                                Berenjena <span class="quantity">(1 pieza)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal9">
+                            <label for="vegetal9" class="item-text">
+                                Espárragos <span class="quantity">(200g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal10">
+                            <label for="vegetal10" class="item-text">
+                                Pimientos <span class="quantity">(300g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal11">
+                            <label for="vegetal11" class="item-text">
+                                Champiñones <span class="quantity">(200g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal12">
+                            <label for="vegetal12" class="item-text">
+                                Portobello <span class="quantity">(4 piezas)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal13">
+                            <label for="vegetal13" class="item-text">
+                                Rábanos <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal14">
+                            <label for="vegetal14" class="item-text">
+                                Pepino <span class="quantity">(2 piezas)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal15">
+                            <label for="vegetal15" class="item-text">
+                                Vainitas <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="vegetal16">
+                            <label for="vegetal16" class="item-text">
+                                Alcachofas (conserva) <span class="quantity">(1 frasco)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRASAS Y ACEITES -->
+            <div class="category">
+                <div class="category-title">
+                    <span>🥑</span> GRASAS Y ACEITES
+                </div>
+                <div class="items-container">
+                    <div class="item-group">
+                        <div class="group-title">Esenciales</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="grasa1">
+                            <label for="grasa1" class="item-text">
+                                Aguacates <span class="quantity">(3 piezas)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="grasa2">
+                            <label for="grasa2" class="item-text">
+                                Aceite de oliva <span class="quantity">(250ml)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="grasa3">
+                            <label for="grasa3" class="item-text">
+                                Nueces picadas <span class="quantity">(50g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="grasa4">
+                            <label for="grasa4" class="item-text">
+                                Semillas de chía <span class="quantity">(50g)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EMBUTIDOS -->
+            <div class="category">
+                <div class="category-title">
+                    <span>🥓</span> EMBUTIDOS
+                </div>
+                <div class="items-container">
+                    <div class="item-group">
+                        <div class="group-title">Sin azúcar añadido</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="embutido1">
+                            <label for="embutido1" class="item-text">
+                                Tocino (bacon) <span class="quantity">(150g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="embutido2">
+                            <label for="embutido2" class="item-text">
+                                Jamón serrano/pavo <span class="quantity">(100g)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONDIMENTOS -->
+            <div class="category">
+                <div class="category-title">
+                    <span>🌿</span> CONDIMENTOS Y ESPECIAS
+                </div>
+                <div class="items-container">
+                    <div class="item-group">
+                        <div class="group-title">Frescos</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="fresco1">
+                            <label for="fresco1" class="item-text">
+                                Ajo <span class="quantity">(1 cabeza)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="fresco2">
+                            <label for="fresco2" class="item-text">
+                                Cebollín <span class="quantity">(1 manojo)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="fresco3">
+                            <label for="fresco3" class="item-text">
+                                Perejil <span class="quantity">(1 manojo)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="fresco4">
+                            <label for="fresco4" class="item-text">
+                                Limones <span class="quantity">(4 piezas)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="fresco5">
+                            <label for="fresco5" class="item-text">
+                                Limas <span class="quantity">(3 piezas)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="item-group">
+                        <div class="group-title">Especias Secas</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia1">
+                            <label for="especia1" class="item-text">
+                                Sal marina
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia2">
+                            <label for="especia2" class="item-text">
+                                Pimienta negra
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia3">
+                            <label for="especia3" class="item-text">
+                                Pimentón ahumado
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia4">
+                            <label for="especia4" class="item-text">
+                                Comino molido
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia5">
+                            <label for="especia5" class="item-text">
+                                Orégano seco
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia6">
+                            <label for="especia6" class="item-text">
+                                Romero seco
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia7">
+                            <label for="especia7" class="item-text">
+                                Eneldo seco
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia8">
+                            <label for="especia8" class="item-text">
+                                Albahaca seca
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especia9">
+                            <label for="especia9" class="item-text">
+                                Ajo en polvo
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="item-group">
+                        <div class="group-title">Salsas</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="salsa1">
+                            <label for="salsa1" class="item-text">
+                                Mostaza Dijon
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="salsa2">
+                            <label for="salsa2" class="item-text">
+                                Pesto (sin azúcar)
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="salsa3">
+                            <label for="salsa3" class="item-text">
+                                Mayonesa keto
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ESPECIALES KETO -->
+            <div class="category">
+                <div class="category-title">
+                    <span>⭐</span> ESPECIALES KETO
+                </div>
+                <div class="items-container">
+                    <div class="item-group">
+                        <div class="group-title">Harinas Alternativas</div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especial1">
+                            <label for="especial1" class="item-text">
+                                Harina de almendra <span class="quantity">(100g)</span>
+                            </label>
+                        </div>
+                        <div class="item">
+                            <input type="checkbox" class="checkbox" id="especial2">
+                            <label for="especial2" class="item-text">
+                                Psyllium en polvo <span class="quantity">(opcional)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROGRESO -->
+        <div class="progress">
+            <h3>📊 Progreso de Compras</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0 de 52 artículos marcados (0%)</p>
+        </div>
+
+        <!-- RESUMEN -->
+        <div class="summary">
+            <h3>📋 Resumen</h3>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-number" id="totalItems">52</div>
+                    <div class="summary-label">Artículos</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number" id="checkedItems">0</div>
+                    <div class="summary-label">Marcados</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">7</div>
+                    <div class="summary-label">Días</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-number">21</div>
+                    <div class="summary-label">Comidas</div>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
+                💰 Presupuesto estimado: $50-70 USD | ⏰ Tiempo: 45-60 min
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            const checkedBoxes = document.querySelectorAll('.checkbox:checked');
+            const total = checkboxes.length;
+            const checked = checkedBoxes.length;
+            const percentage = Math.round((checked / total) * 100);
+            
+            // Actualizar barra de progreso
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = `${checked} de ${total} artículos marcados (${percentage}%)`;
+            document.getElementById('checkedItems').textContent = checked;
+            document.getElementById('totalItems').textContent = total;
+            
+            // Marcar items como completados visualmente
+            checkboxes.forEach(checkbox => {
+                const item = checkbox.closest('.item');
+                if (checkbox.checked) {
+                    item.classList.add('checked');
+                } else {
+                    item.classList.remove('checked');
+                }
+            });
+            
+            // Celebración cuando se completa todo
+            if (checked === total && total > 0) {
+                setTimeout(() => {
+                    alert('🎉 ¡FELICIDADES! Lista de compras completada. ¡Estás listo/a para tu transformación keto!');
+                }, 300);
+            }
+        }
+        
+        function checkAll() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateProgress();
+        }
+        
+        function uncheckAll() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateProgress();
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', updateProgress);
+            });
+            
+            // Inicializar progreso
+            updateProgress();
+            
+            // Intentar cargar estado guardado
+            try {
+                const saved = localStorage.getItem('ketoShoppingList');
+                if (saved) {
+                    const checkedStates = JSON.parse(saved);
+                    Object.keys(checkedStates).forEach(id => {
+                        const checkbox = document.getElementById(id);
+                        if (checkbox) {
+                            checkbox.checked = checkedStates[id];
+                        }
+                    });
+                    updateProgress();
+                }
+            } catch (e) {
+                // localStorage no disponible
+            }
+        });
+        
+        // Guardar estado cuando cambie
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('checkbox')) {
+                try {
+                    const checkboxes = document.querySelectorAll('.checkbox');
+                    const checkedStates = {};
+                    
+                    checkboxes.forEach(checkbox => {
+                        checkedStates[checkbox.id] = checkbox.checked;
+                    });
+                    
+                    localStorage.setItem('ketoShoppingList', JSON.stringify(checkedStates));
+                } catch (e) {
+                    // localStorage no disponible
+                }
+            }
+        });
+    </script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(console.error);
+  });
+}
+</script>
+</body>
+</html>
