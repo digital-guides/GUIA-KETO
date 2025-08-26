@@ -1,18 +1,15 @@
 
-/* SW FIX — paths aligned to repo root, precaches plan7dias.html */
-const VERSION = "v2.0.3-1756178070";
+/* SW ULTRA SAFE — GUIA-KETO */
+const VERSION = "v2.0.2-1756177910";
 const CACHE_NAME = `keto360-${VERSION}`;
 const CORE_ASSETS = [
   "./",
   "./index.html",
-  "./plan7dias.html",
-  "./bono2-lista-compras.html",
-  "./bono3-snacks.html",
   "./offline.html",
   "./manifest.webmanifest",
   "./apple-touch-icon.png",
-  "./icon-192.png",
-  "./icon-512.png"
+  "./manifest-icons/icon-192.png",
+  "./manifest-icons/icon-512.png"
 ];
 
 self.addEventListener('install', (event) => {
@@ -67,18 +64,21 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // same-origin only
+  // only same-origin
   if (url.origin !== self.location.origin) return;
 
+  // Documents (HTML): network-first with offline fallback
   if (req.mode === 'navigate' || req.destination === 'document') {
     event.respondWith(handleNavigation(req));
     return;
   }
 
+  // Images: cache-first (same-origin only)
   if (req.destination === 'image') {
     event.respondWith(cacheFirst(req));
     return;
   }
 
+  // Others: SWR
   event.respondWith(swr(req));
 });
