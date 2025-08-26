@@ -1,6 +1,6 @@
 
-/* SW seguro para GUIA-KETO (sin precache externo) */
-const VERSION = "v2.0.1-1756177428";
+/* SW FIX — paths aligned to repo root, precaches plan7dias.html */
+const VERSION = "v2.0.3-1756178070";
 const CACHE_NAME = `keto360-${VERSION}`;
 const CORE_ASSETS = [
   "./",
@@ -11,8 +11,8 @@ const CORE_ASSETS = [
   "./offline.html",
   "./manifest.webmanifest",
   "./apple-touch-icon.png",
-  "./manifest-icons/icon-192.png",
-  "./manifest-icons/icon-512.png"
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 self.addEventListener('install', (event) => {
@@ -31,7 +31,6 @@ self.addEventListener('activate', (event) => {
   })());
 });
 
-// Navegaciones: network-first con fallback a cache y luego offline.html
 async function handleNavigation(req) {
   try {
     const fresh = await fetch(req, { cache: 'no-store' });
@@ -44,7 +43,6 @@ async function handleNavigation(req) {
   }
 }
 
-// Imágenes mismo-origen: cache-first
 async function cacheFirst(req) {
   const c = await caches.open(CACHE_NAME);
   const cached = await c.match(req);
@@ -58,7 +56,6 @@ async function cacheFirst(req) {
   }
 }
 
-// Otros assets mismo-origen: stale-while-revalidate
 async function swr(req) {
   const c = await caches.open(CACHE_NAME);
   const cached = await c.match(req);
@@ -70,7 +67,7 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // Solo manejamos mismo-origen
+  // same-origin only
   if (url.origin !== self.location.origin) return;
 
   if (req.mode === 'navigate' || req.destination === 'document') {
